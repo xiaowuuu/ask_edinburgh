@@ -10,6 +10,7 @@ function Header () {
     <img src={purple} alt={purple} />
     <img src={circle} alt={circle} />
     <img src={pipeman} alt={pipeman}/>
+    <p>The best place to EXPLORE and DISCOVER Edinburgh</p>
 
     </div>
   )
