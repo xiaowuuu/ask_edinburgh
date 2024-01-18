@@ -1,8 +1,8 @@
-import castle from 'assets/image/Castle.png'
+import castle from '../assets/image/Castle.png'
 function Header () {
   return (
     <div>
-    <img src={castle}></img>
+    <img src={castle} alt={castle} />
     </div>
   )
 }
