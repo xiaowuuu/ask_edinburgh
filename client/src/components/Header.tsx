@@ -10,7 +10,7 @@ function Header () {
     <img src={purple} alt={purple} />
     <img src={circle} alt={circle} />
     <img src={pipeman} alt={pipeman}/>
-    <p className='font-ABeeZee'>The best place to EXPLORE and DISCOVER Edinburgh</p>
+    <p className='text-6xl font-ABeeZee'>The best place to EXPLORE and DISCOVER Edinburgh</p>
 
     </div>
   )
