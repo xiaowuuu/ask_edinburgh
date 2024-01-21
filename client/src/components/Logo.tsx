@@ -1,9 +1,7 @@
 function Logo (){
   return(
-  <>
-  <p>ASK EDINBURGH</p>
-  <h1 className="text-3xl font-bold text-red-500 underline text-center">Hello world!</h1> 
-  </>)
+  <p className="pt-5 pl-20">ASK EDINBURGH</p>
+)
 }
 
 export default Logo;
