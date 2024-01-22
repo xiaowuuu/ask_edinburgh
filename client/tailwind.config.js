@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       fontFamily:{
         'ABeeZee':['"ABeeZee"', 'sans-serif'],
+        'amatic': ["Amatic SC", 'sans-serif'],
       },
     },
   },

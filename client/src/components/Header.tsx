@@ -6,12 +6,15 @@ import purple from '../assets/image/Purple.png'
 function Header () {
   return (
     <div>
-    <img src={castle} alt={castle} />
-    <img src={purple} alt={purple} />
-    <img src={circle} alt={circle} />
-    <img src={pipeman} alt={pipeman}/>
-    <p className='text-6xl font-ABeeZee'>The best place to EXPLORE and DISCOVER Edinburgh</p>
-
+    <img src={castle} alt={castle} className='h-40 w-40'/>
+    <img src={purple} alt={purple} className='h-10 w-10'/>
+    <div>
+    <p className='text-6xl font-ABeeZee'>The best place to</p>
+    <p className='text-6xl font-amatic'>EXPLORE</p><p>and</p><p className='text-6xl font-amatic'>DISCOVER</p>
+    <p className='text-6xl font-ABeeZee'>Edinburgh</p>
+    </div>
+    <img src={circle} alt={circle} className='h-20 w-20'/>
+    <img src={pipeman} alt={pipeman}className='h-40 w-40'/>
     </div>
   )
 }
