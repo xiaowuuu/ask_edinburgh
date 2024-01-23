@@ -1,7 +1,7 @@
 function SearchButton (){
   // const SearchButton
   return (
-    <button>Search With AI</button>
+    <button className="border border-black rounded-md mr-4 px-3 py-2">Search With AI</button>
   )
 
 }
