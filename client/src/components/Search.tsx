@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-function Search () {
-  const [question, setQuestion] = useState<string>('');
-  const [result, setResult] = useState<string>('');
-  const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>)=> {
-    setQuestion(event.target.value);
-  };
-  const handleSearchClick = () => {
-    setResult(question);
-  }
+
+  const Search: React.FC<{question: string; onQuestionChange:(newQuestion:string)=> void}> = ({
+    question,
+    onQuestionChange,
+  }) => {
+    const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      onQuestionChange(event.target.value);
+    }
+    const handleSearchClick = () => {
+
+    }
   return (
     <>
     <input 

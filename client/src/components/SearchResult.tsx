@@ -1,8 +1,9 @@
-function SearchResult () {
+const SearchResult:React.FC<{ question:string}> = ({question})=> {
   
   return (
-    <>
-    </>
+    <div className="">
+      {question}
+    </div>
   )
 }
 
