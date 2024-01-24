@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
+    <Logo/>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
