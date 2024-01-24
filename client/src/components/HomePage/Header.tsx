@@ -1,7 +1,7 @@
-import castle from '../assets/image/Castle.png'
-import circle from '../assets/image/Exclude.png'
-import pipeman from '../assets/image/Pipeman.png'
-import purple from '../assets/image/Purple.png'
+import castle from '../../assets/image/Castle.png'
+import circle from '../../assets/image/Exclude.png'
+import pipeman from '../../assets/image/Pipeman.png'
+import purple from '../../assets/image/Purple.png'
 
 function Header () {
   return (

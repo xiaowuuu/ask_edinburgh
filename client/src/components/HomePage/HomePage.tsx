@@ -1,4 +1,4 @@
-import Header from "../Header";
+import Header from "./Header";
 import Logo from "../Logo";
 import Search from "./Search";
 import SearchResult from "./SearchResult";
