@@ -1,13 +1,11 @@
-
 import { useState } from "react";
-function Search ({onSearch}) {
+function Search () {
+  const [question, setQuestion] = useState('');
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(event.target.value);
   }
-  const [searchClicked, setSearchClicked] = useState<boolean>(false);
   const handleSearchClick = () => {
-    setSearchClicked(true);
-    onSearch(question);
+    console.log("Search Clicked with Question:", question);
   }
 
   return (

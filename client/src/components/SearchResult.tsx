@@ -2,7 +2,7 @@ const SearchResult:React.FC<{ question:string}> = ({question})=> {
   
   return (
     <div className="">
-      {question}
+      YOur question: {question}
     </div>
   )
 }

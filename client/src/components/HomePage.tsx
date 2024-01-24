@@ -17,7 +17,6 @@ function HomePage() {
     <Search onSearch={handleSearch}/>
     {showSearchResult && <SearchResult question={question}/>}
     </div>
-    
   )
 }
 
