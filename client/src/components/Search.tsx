@@ -1,14 +1,15 @@
 
-  const Search: React.FC<{question: string; onQuestionChange:(newQuestion:string)=> void}> = ({
-    question,
-    onQuestionChange,
-  }) => {
-    const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      onQuestionChange(event.target.value);
-    }
-    const handleSearchClick = () => {
+import { useState } from "react";
+function Search ({onSearch}) {
+  const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuestion(event.target.value);
+  }
+  const [searchClicked, setSearchClicked] = useState<boolean>(false);
+  const handleSearchClick = () => {
+    setSearchClicked(true);
+    onSearch(question);
+  }
 
-    }
   return (
     <>
     <input 
