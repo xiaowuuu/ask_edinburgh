@@ -10,6 +10,12 @@ function Search ({onSearch}) {
     onSearch(question);
   }
 
+  const StyledSpan = ({text, bgColor}) => (
+    <span className={`text-white  bg-${bgColor} border rounded-full mr-4 px-3 py-2`}>
+      {text}
+    </span>
+  )
+
   return (
     <>
     <input 
@@ -22,6 +28,15 @@ function Search ({onSearch}) {
     onClick={handleSearchClick}
     type="button" 
     className="text-white bg-purple-700 border  rounded-full mr-4 px-3 py-2">Search With AI</button>
+    <div>
+    <StyledSpan text='HISTORY' bgColor="purple-700" />
+    <StyledSpan text='EDINBURGH FESTIVAL FRINGE' bgColor="purple-700"/>
+    <StyledSpan text='SUNSHINE ON LEITH' bgColor="purple-700"/>
+    <StyledSpan text='LITERARY HERITAGE' bgColor="yellow-500"/>
+    <StyledSpan text='EDINBURG’S HOGMANAY' bgColor="yellow-300"/>
+    </div>
+    
+
     </>
   )
 }
