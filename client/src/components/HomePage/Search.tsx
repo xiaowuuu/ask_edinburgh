@@ -23,7 +23,7 @@ function Search ({onSearch}) {
     onClick={handleSearchClick}
     type="button" 
     className="text-white bg-indigo-600 border-transparency  rounded-full mr-4 px-3 py-2">Search With AI</button>
-    <div>
+    <div className="pt-5 pb-5">
     <span className="text-white  bg-indigo-500 border-transparency rounded-full mr-4 px-3 py-2">
 HISTORY
     </span>
