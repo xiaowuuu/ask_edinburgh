@@ -1,14 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 function Search ({onSearch}) {
   const [question, setQuestion] = useState('');
+  const [img, setImg] = useState(null);
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(event.target.value);
   }
+  // set up fetch image
+  const fetchImage = async (searchQuery) => {
+    try {
+      const apiKey = "AIzaSyDQfrrnPJdHyJQrClVJ9qBjSErqbwF4PDI";
+      const searchType = "image";
+      const res = await fetch(
+        `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=017576662512468239146:omuauf_lfve&searchType=${searchType}&q=${searchQuery}`
+      );
+      const data = await res.json();
+      const imageUrl = data?.items?.[0]?.link;
+      if (imageUrl) {
+        setImg(imageUrl);
+      } else {
+        console.error('No image found');
+      }
+    } catch (error) {
+      console.error("error fetching image", error);
+    }
+  }
+
   const [searchClicked, setSearchClicked] = useState<boolean>(false);
   const handleSearchClick = () => {
     setSearchClicked(true);
     onSearch(question);
+    fetchImage(question);
   }
+  useEffect(()=> {
+
+  }, [img]);
 
 
   return (
@@ -40,8 +66,11 @@ HISTORY
     EDINBURG’S HOGMANAY
     </span>
     </div>
-    
-
+    {img && (
+      <div>
+        <img src={img} alt="fetched image"/>
+      </div>
+    )}
     </>
   )
 }
