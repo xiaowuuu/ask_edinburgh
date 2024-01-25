@@ -10,11 +10,6 @@ function Search ({onSearch}) {
     onSearch(question);
   }
 
-  const StyledSpan = ({text, bgColor}) => (
-    <span className={`text-white  bg-${bgColor} border rounded-full mr-4 px-3 py-2`}>
-      {text}
-    </span>
-  )
 
   return (
     <>
@@ -27,13 +22,23 @@ function Search ({onSearch}) {
     <button 
     onClick={handleSearchClick}
     type="button" 
-    className="text-white bg-purple-700 border  rounded-full mr-4 px-3 py-2">Search With AI</button>
+    className="text-white bg-indigo-600 border-transparency  rounded-full mr-4 px-3 py-2">Search With AI</button>
     <div>
-    <StyledSpan text='HISTORY' bgColor="purple-700" />
-    <StyledSpan text='EDINBURGH FESTIVAL FRINGE' bgColor="purple-700"/>
-    <StyledSpan text='SUNSHINE ON LEITH' bgColor="purple-700"/>
-    <StyledSpan text='LITERARY HERITAGE' bgColor="yellow-500"/>
-    <StyledSpan text='EDINBURG’S HOGMANAY' bgColor="yellow-300"/>
+    <span className="text-white  bg-indigo-500 border-transparency rounded-full mr-4 px-3 py-2">
+HISTORY
+    </span>
+    <span className="text-white  bg-amber-300 border-transparency rounded-full mr-4 px-3 py-2">
+    EDINBURGH FESTIVAL FRINGE
+    </span>
+    <span className="text-white  bg-violet-400 border-transparency rounded-full mr-4 px-3 py-2">
+    SUNSHINE ON LEITH
+    </span>
+    <span className="text-white  bg-violet-400 border-transparency rounded-full mr-4 px-3 py-2">
+    LITERARY HERITAGE
+    </span>
+    <span className="text-white  bg-amber-300 border-transparency rounded-full mr-4 px-3 py-2">
+    EDINBURG’S HOGMANAY
+    </span>
     </div>
     
 
