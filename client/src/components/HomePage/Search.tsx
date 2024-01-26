@@ -7,12 +7,12 @@ function Search ({onSearch}) {
     setQuestion(event.target.value);
   }
   // set up fetch image
-  const fetchImage = async (searchQuery) => {
+  const fetchImage = async (q) => {
     try {
       const apiKey = "AIzaSyDQfrrnPJdHyJQrClVJ9qBjSErqbwF4PDI";
       // const searchType = "image";
       const res = await fetch(
-        `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=a1f03943e0a6a4df0:omuauf_lfve&searchType=image&q=${searchQuery}`
+        `https://www.googleapis.com/customsearch/v1?q=test&key=${apiKey}&cx=a1f03943e0a6a4df0:omuauf_lfve&searchType=image&q=${q}`
       );
       const data = await res.json();
       console.log('api response:', data);
