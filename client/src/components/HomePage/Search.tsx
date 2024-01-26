@@ -2,41 +2,41 @@ import { useEffect, useState } from "react";
 
 function Search ({onSearch}) {
   const [question, setQuestion] = useState('');
-  const [img, setImg] = useState(null);
+  // const [img, setImg] = useState(null);
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(event.target.value);
   }
   // set up fetch image
-  const fetchImage = async (q) => {
-    try {
-      const apiKey = "AIzaSyDQfrrnPJdHyJQrClVJ9qBjSErqbwF4PDI";
-      const cx = "a1f03943e0a6a4df0"
-      // const searchType = "image";
-      const res = await fetch(
-        `https://www.googleapis.com/customsearch/v1?q=test&key=${apiKey}&cx=${cx}:omuauf_lfve&searchType=image&q=${q}`
-      );
-      const data = await res.json();
-      console.log('api response:', data);
-      const imageUrl = data?.items?.[0]?.link;
-      if (imageUrl) {
-        setImg(imageUrl);
-      } else {
-        console.error('No image found');
-      }
-    } catch (error) {
-      console.error("error fetching image", error);
-    }
-  }
+  // const fetchImage = async (q) => {
+  //   try {
+  //     const apiKey = "AIzaSyDQfrrnPJdHyJQrClVJ9qBjSErqbwF4PDI";
+  //     const cx = "a1f03943e0a6a4df0"
+  //     // const searchType = "image";
+  //     const res = await fetch(
+  //       `https://www.googleapis.com/customsearch/v1?q=test&key=${apiKey}&cx=${cx}:omuauf_lfve&searchType=image&q=${q}`
+  //     );
+  //     const data = await res.json();
+  //     console.log('api response:', data);
+  //     const imageUrl = data?.items?.[0]?.link;
+  //     if (imageUrl) {
+  //       setImg(imageUrl);
+  //     } else {
+  //       console.error('No image found');
+  //     }
+  //   } catch (error) {
+  //     console.error("error fetching image", error);
+  //   }
+  // }
 
   const [searchClicked, setSearchClicked] = useState<boolean>(false);
   const handleSearchClick = () => {
     setSearchClicked(true);
     onSearch(question);
-    fetchImage(question);
+    // fetchImage(question);
   }
-  useEffect(()=> {
+  // useEffect(()=> {
 
-  }, [img]);
+  // }, [img]);
 
 
   return (
@@ -68,11 +68,11 @@ HISTORY
     EDINBURG’S HOGMANAY
     </span>
     </div>
-    {img && (
+    {/* {img && (
       <div>
         <img src={img} alt="fetched image"/>
       </div>
-    )}
+    )} */}
     </>
   )
 }
