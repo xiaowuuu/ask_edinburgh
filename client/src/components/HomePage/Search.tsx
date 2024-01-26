@@ -15,6 +15,7 @@ function Search ({onSearch}) {
         `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=017576662512468239146:omuauf_lfve&searchType=${searchType}&q=${searchQuery}`
       );
       const data = await res.json();
+      console.log('api response:', data);
       const imageUrl = data?.items?.[0]?.link;
       if (imageUrl) {
         setImg(imageUrl);
