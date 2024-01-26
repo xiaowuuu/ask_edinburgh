@@ -10,9 +10,10 @@ function Search ({onSearch}) {
   const fetchImage = async (q) => {
     try {
       const apiKey = "AIzaSyDQfrrnPJdHyJQrClVJ9qBjSErqbwF4PDI";
+      const cx = "a1f03943e0a6a4df0"
       // const searchType = "image";
       const res = await fetch(
-        `https://www.googleapis.com/customsearch/v1?q=test&key=${apiKey}&cx=a1f03943e0a6a4df0:omuauf_lfve&searchType=image&q=${q}`
+        `https://www.googleapis.com/customsearch/v1?q=test&key=${apiKey}&cx=${cx}:omuauf_lfve&searchType=image&q=${q}`
       );
       const data = await res.json();
       console.log('api response:', data);
@@ -70,10 +71,6 @@ HISTORY
     {img && (
       <div>
         <img src={img} alt="fetched image"/>
-        {/* <script async src="https://cse.google.com/cse.js?cx=a1f03943e0a6a4df0">
-</script>
-<div className="gcse-search">
-</div> */}
       </div>
     )}
     </>
