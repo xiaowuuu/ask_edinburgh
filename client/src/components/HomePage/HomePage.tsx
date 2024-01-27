@@ -1,19 +1,16 @@
 import Header from "./Header";
 import Search from "./Search";
 import SearchResult from "./SearchResult";
+import SearchContainer from "./SearchContainer";
 import { useState } from "react";
 function HomePage() {
-  const [question, setQuestion] = useState<string>("");
-  const [showSearchResult, setShowSearchResult] = useState<boolean>(false);
-  const handleSearch = (newQuestion: string) => {
-    setQuestion(newQuestion);
-    setShowSearchResult(true);
-  };
+  
   return (
     <div>
       <Header />
-      <Search onSearch={handleSearch} />
-      {showSearchResult && <SearchResult question={question} />}
+      {/* <Search onSearch={handleSearch} />
+      {showSearchResult && <SearchResult question={question} />} */}
+      <SearchContainer />
     </div>
   );
 }

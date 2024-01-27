@@ -20,7 +20,7 @@ function SearchContainer () {
       onQuestionChange={handleQuestionChange}
       onSearchClick={handleSearchClick}
       />
-      <SearchResult question={question} searchClicked={searchClicked}/>
+      {searchClicked && <SearchResult question={question} searchClicked={searchClicked}/>}
     </div>
   )
 }
