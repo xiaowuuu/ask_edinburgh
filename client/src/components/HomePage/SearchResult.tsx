@@ -1,8 +1,8 @@
-const SearchResult:React.FC<{ question:string}> = ({question})=> {
+function SearchResult ({question, searchClicked}) {
   
   return (
     <div className="">
-      YOur question: {question}
+      <h3>YOur question: {question}</h3>
     </div>
   )
 }
