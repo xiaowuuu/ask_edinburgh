@@ -5,8 +5,19 @@ const cors = require('cors')
 app.use(cors());
 app.use(express.json());
 const MongoClient = require('mongodb').MongoClient;
-// const createRouter = require('.')
+const createRouter = require('./helpers/create_router.js');
 
-app.listen(9000, function(){
-  console.log('app running on port 9000')
-})
+MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true})
+  .then((client) => {
+    const db = client.db('ask_edinburgh');
+    const userCollection = db.collection('user');
+    const usersRouter = createRouter(usersCollection);
+    app.use('/api/users', usersRouter);
+  })
+    .catch(console.err);
+
+
+
+app.listen(9000, function () {
+	console.log(`Listening on port ${this.address().port}`);
+});
