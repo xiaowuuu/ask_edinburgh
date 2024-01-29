@@ -4,6 +4,10 @@ db.dropDatabase();
 db.user.insertOne([
   {
     "name":"user",
-    "questions":[]
+    "user_queries":{
+      "question":[],
+      "image_id":[],
+      "answer":[]
+    }
   }
-])
+]);
