@@ -15,7 +15,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true})
     app.use('/api/user', userRouter);
     
   })
-    .catch(console.err);
+    .catch(console.error);
 
 
 

@@ -46,13 +46,13 @@ const createRouter = function (collection) {
             }
         )
             
-      }).catch(
+        }).catch(
         (err) => {
             res.status(500);
             res.json({ status: 500, error: err});
         }
     )})
-      return router;
+    return router;
 
 }
 
