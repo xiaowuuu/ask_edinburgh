@@ -6,12 +6,12 @@ import Answer from "../models/Answer";
 
 async function seedDataBase () {
   try {
-    (await mongoose.connect("mongodb://localhost:27017/ask_edinburgh")).isObjectIdOrHexString(
-      () => {},
-    ).catch((err:Error)=>{
-      console.log('mongodb connection error, please make sure mongodb is running' + err)
-      process.exit();
-    })
+    const connection = await mongoose.connect("mongodb://localhost:27017/ask_edinburgh");
+    
+    if (!connection.connections[0].readyState){
+      console.log('mongodb connection error, please make sure mongodb is running');
+      process.exit(1);
+    }
 
     const users = await User.insertMany(seedData.users);
 
