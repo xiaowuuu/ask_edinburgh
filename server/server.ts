@@ -8,6 +8,7 @@ const port: number = 9000;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 MongoClient.connect('mongodb://127.0.0.1:27017')
   .then((client)=> {

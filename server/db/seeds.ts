@@ -15,6 +15,11 @@ async function seedDataBase () {
 
     const users = await User.insertMany(seedData.users);
 
+    // if (!users || users.length === 0) {
+    //   console.error("users have no _id values");
+    //   return;
+    // }
+
     seedData.questions.forEach((q,index)=>(q.userId = users[index]._id));
     seedData.answers.forEach((a,index)=> (a.userId = users[index]._id));
 
