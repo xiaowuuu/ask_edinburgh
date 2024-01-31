@@ -20,8 +20,8 @@ async function seedDataBase () {
     //   return;
     // }
 
-    seedData.questions.forEach((q,index)=>(q.userId = users[index]._id));
-    seedData.answers.forEach((a,index)=> (a.userId = users[index]._id));
+    seedData.questions.forEach((q,index)=>(q.userId = users[0]._id));
+    seedData.answers.forEach((a,index)=> (a.userId = users[0]._id));
 
     await Question.insertMany(seedData.questions);
     await Answer.insertMany(seedData.answers);
