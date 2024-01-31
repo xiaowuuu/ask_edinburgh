@@ -1,12 +1,13 @@
+import { ObjectId } from "mongodb";
 const seedData = {
   users: [
     {username: 'user'}
   ],
   questions: [
-    {userId: "user_id_1", questionText:"Is summer the best season of Edinburgh?"}
+    {userId: new ObjectId(), questionText:"Is summer the best season of Edinburgh?"}
   ],
   answers: [
-    {userId: "user_id_1", questionId: "question_id_1", answerText:""}
+    {userId: new ObjectId(), questionId: new ObjectId(), answerText:"of course"}
   ]
 }
 
