@@ -1,38 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { fetchUserData } from "../services/Api";
+// import React, { useEffect, useState } from "react";
+// import { fetchUserData, UserData } from "../services/Api";
+// import QuestionComponent from "./QuestionComponent";
 
-type UserData = {
-  user: {
-    _id: string;
-    username: string;
-  };
-}[];
 
-const UserComponent: React.FC = () => {
-  const [data, setData] = useState<UserData>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const userData = await fetchUserData();
-        setData(userData);
-      } catch (error) {
-        console.error('error fetching data:', error);
-      }
-    }
-    fetchData();
-    }, [])
+// const UserComponent: React.FC = () => {
+//   const [data, setData] = useState<UserData[]>([]);
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const userData = await fetchUserData();
+//         setData(userData);
+//       } catch (error) {
+//         console.error('error fetching data:', error);
+//       }
+//     }
+//     fetchData();
+//     }, [])
   
-  return (
-    <div>
-      <ul>
-        {data.map((item) => (
-          <li key={item.user._id}>
-            User: {item.user.username}
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
+//   return (
+//     <div>
+//       <ul>
+//         {data.map((item) => (
+//           <li key={item.user._id}>
+//             User: {item.user.username}
+//             <ul>
+//               {item.questions.map((question)=> (
+//                 <QuestionComponent key={question._id} question={question}/>
+//               ))}
+//             </ul>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   )
+// }
 
-export default UserComponent;
+// export default UserComponent;

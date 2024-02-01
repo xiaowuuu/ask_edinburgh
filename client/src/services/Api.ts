@@ -1,6 +1,6 @@
 const baseUrl = 'http://localhost:9000/';
 
-type UserData = {
+export type UserData = {
   user: {
     _id: string;
     username: string;
