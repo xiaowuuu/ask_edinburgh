@@ -13,9 +13,9 @@ app.use(express.urlencoded({extended: true}));
 MongoClient.connect('mongodb://127.0.0.1:27017')
   .then((client)=> {
     const db = client.db('ask_edinburgh');
-    const userCollection = db.collection('user');
+    const userCollection = db.collection('users');
     const userRouter = createRouter(userCollection);
-    app.use('/api/user', userRouter);
+    app.use('/', userRouter);
   })
   .catch(console.error);
 
