@@ -22,9 +22,31 @@ MongoClient.connect('mongodb://localhost:27017')
     app.use('/user', userRouter);
     app.use('/question', questionRouter);
     app.use('/answer', answerRouter);
-  })
-  .catch(console.error);
 
-app.listen(port, ()=>{
-  console.log(`listening on port ${port}`);
-});
+    app.get('/', async(req, res)=> {
+      try {
+        const users = await userCollection.find().toArray();
+        const dataTree = await Promise.all(
+          users.map(async (user) => {
+            const questions = await questionCollection.find({userId: user._id}).toArray();
+            const answers = await answerCollection.find({userId: user._id}).toArray();
+
+            return {
+              user,
+              questions,
+              answers,
+            }
+          })
+        );
+          res.json(dataTree);
+        } catch (error) {
+          console.error('error fetching data:', error);
+          res.status(500).json({status: 500, error: 'internal server error'})
+        }
+      })
+  
+  app.listen(port, ()=>{
+    console.log(`listening on port ${port}`);
+  });
+})
+.catch(console.error);
