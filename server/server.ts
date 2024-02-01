@@ -10,12 +10,18 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-MongoClient.connect('mongodb://127.0.0.1:27017')
+MongoClient.connect('mongodb://localhost:27017')
   .then((client)=> {
     const db = client.db('ask_edinburgh');
     const userCollection = db.collection('users');
+    const questionCollection = db.collection('questions');
+    const answerCollection = db.collection('answers');
     const userRouter = createRouter(userCollection);
-    app.use('/', userRouter);
+    const questionRouter = createRouter(questionCollection);
+    const answerRouter = createRouter(answerCollection);
+    app.use('/user', userRouter);
+    app.use('/question', questionRouter);
+    app.use('/answer', answerRouter);
   })
   .catch(console.error);
 
