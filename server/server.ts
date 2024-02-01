@@ -29,12 +29,18 @@ MongoClient.connect('mongodb://localhost:27017')
         const dataTree = await Promise.all(
           users.map(async (user) => {
             const questions = await questionCollection.find({userId: user._id}).toArray();
-            const answers = await answerCollection.find({userId: user._id}).toArray();
-
+            const questionsWithAnswers = await Promise.all(
+              questions.map(async(question)=> {
+                const answers = await answerCollection.find({questionId: question._id}).toArray();
+                return {
+                  question,
+                  answers,
+                }
+              })
+            )
             return {
               user,
-              questions,
-              answers,
+              questions: questionsWithAnswers,
             }
           })
         );
