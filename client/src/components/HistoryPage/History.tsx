@@ -1,6 +1,6 @@
 // import { useLocation} from 'react-router-dom';
 // import { useState } from 'react';
-import QuestionComponent from "../QuestionComponent";
+// import QuestionComponent from "../QuestionComponent";
 
 interface HistoryProps {
   searchHistory?: string[];
@@ -12,7 +12,7 @@ function History({searchHistory=[]}:HistoryProps) {
       {searchHistory.length>0?(
         <ul>{searchHistory.map((item, index)=> (
           <li key={index}>
-            <QuestionComponent question={{_id: index.toString(), questionText: item, answers:[]}}/>
+            {/* <QuestionComponent question={{_id: index.toString(), questionText: item, answers:[]}}/> */}
           </li>
         ))}
           </ul>

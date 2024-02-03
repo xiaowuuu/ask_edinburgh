@@ -17,9 +17,9 @@ export type UserData = {
   }[];
 };
 
-const handleFetch = async (endpoint:string): Promise<any> => {
+export const fetchUserData = async (): Promise<UserData> => {
       try {
-        const response = await fetch(`${baseUrl}/${endpoint}`);
+        const response = await fetch(`${baseUrl}/user`);
         const result = await response.json();
         return result;
       } catch (error) {
@@ -27,7 +27,5 @@ const handleFetch = async (endpoint:string): Promise<any> => {
         throw error;
       }
     }
-    export const fetchUserData = async(): Promise<UserData[]> => {
-      return handleFetch('user');
-    }
+
   
