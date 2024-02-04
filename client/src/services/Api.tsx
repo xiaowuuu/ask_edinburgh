@@ -19,7 +19,7 @@ export type UserData = {
 
 export const fetchUserData = async (): Promise<UserData> => {
       try {
-        const response = await fetch(`${baseUrl}/user`);
+        const response = await fetch(baseUrl);
         const result = await response.json();
         return result;
       } catch (error) {
