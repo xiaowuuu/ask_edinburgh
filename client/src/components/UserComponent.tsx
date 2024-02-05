@@ -4,7 +4,7 @@ import { getData } from "../services/Api";
 
 
 const UserComponent: React.FC = () => {
-  const [userData, setUserData] = useState<any>(null);
+  const [userData, setUserData] = useState<any[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,11 +20,14 @@ const UserComponent: React.FC = () => {
   
   return (
     <div>
-      {userData  ? (
+      {userData.length > 0 ? (
         <>
-        <h2>
-          User:{userData.userName}
+        {userData.map((user)=> (
+          <h2>
+          User:{user.username}
           </h2>
+        ))}
+        
         </>
       ):(
         <p>Loading...</p>
