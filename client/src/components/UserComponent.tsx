@@ -23,9 +23,7 @@ const UserComponent: React.FC = () => {
       {userData.length > 0 ? (
         <>
         {userData.map((user)=> (
-          <h2>
-          User:{user.username}
-          </h2>
+          <h2>User:{user.username}</h2>
         ))}
         
         </>

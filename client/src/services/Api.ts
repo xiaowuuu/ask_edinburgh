@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:9000/user/'
+const baseURL = 'http://localhost:9000/'
 
 export const getData = async () => {
   try {
