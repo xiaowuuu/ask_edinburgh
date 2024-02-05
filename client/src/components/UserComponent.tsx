@@ -22,8 +22,8 @@ const UserComponent: React.FC = () => {
     <div>
       {userData.length > 0 ? (
         <>
-        {userData.map((user)=> (
-          <h2>User:{user.username}</h2>
+        {userData.map((question)=> (
+          <h2>User:{question.questionText}</h2>
         ))}
         
         </>
