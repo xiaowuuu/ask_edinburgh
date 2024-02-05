@@ -20,11 +20,11 @@ const UserComponent: React.FC = () => {
   
   return (
     <div>
-      {userData && userData.user ? (
+      {userData  ? (
         <>
         <h2>
-          User:{userData.user.username}</h2>
-        
+          User:{userData.userName}
+          </h2>
         </>
       ):(
         <p>Loading...</p>
