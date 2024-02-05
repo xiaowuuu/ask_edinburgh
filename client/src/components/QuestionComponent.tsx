@@ -1,28 +1,36 @@
-// import React, { useState, useEffect } from "react";
-// import { fetchUserData, UserData } from "../services/Api";
+import React, { useEffect, useState } from "react";
+import { getData } from "../services/Api";
 
-// type QuestionComponentProps = {
-//   question: {
-//     _id: string;
-//     questionText: string;
-//     answers: {
-//       _id: string;
-//       answerText: string;
-//     }[];
-//   };
-// };
+const QuestionComponent: React.FC = () => {
+  const [questionData, setQuestionData] = useState<any[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getData();
+        console.log('fetch data', data)
+        setQuestionData(data);
+      } catch (error) {
+        console.error('error fetching data:', error);
+      }
+    }
+    fetchData();
+    }, [])
+  
+  return (
+    <div>
+      {questionData.length > 0 ? (
+        <>
+        {questionData.map((question, index)=> (
+          <div key={index}>
+            <h2>Question: {question.questionText}</h2>
+          </div>
+        ))}
+        </>
+      ):(
+        <p>Loading...</p>
+      )}
+    </div>
+  )
+}
 
-// const QuestionComponent: React.FC<QuestionComponentProps> = ({ question }) => {
-//   return (
-//     <div>
-//       <h3>{question.questionText}</h3>
-//       <ul>
-//         {question.answers.map((answer) => (
-//           <li key={answer._id}>{answer.answerText}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default QuestionComponent;
+export default QuestionComponent;

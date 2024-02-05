@@ -3,7 +3,7 @@ import Search from "./Search";
 import SearchResult from "./SearchResult";
 import SearchContainer from "./SearchContainer";
 import { useState } from "react";
-import UserComponent from "../UserComponent";
+// import UserComponent from "../UserComponent";
 function HomePage() {
   
   return (
@@ -12,7 +12,7 @@ function HomePage() {
       {/* <Search onSearch={handleSearch} />
       {showSearchResult && <SearchResult question={question} />} */}
       <SearchContainer />
-      <UserComponent/>
+      {/* <UserComponent/> */}
     </div>
   );
 }
