@@ -1,7 +1,7 @@
 import mongoose, {Document, Schema} from "mongoose";
 
 interface IAnswer {
-  userId: mongoose.Types.ObjectId;
+  // userId: mongoose.Types.ObjectId;
   answerId: mongoose.Types.ObjectId;
   answerText: string;
 }
@@ -12,9 +12,9 @@ interface IQuestion extends Document {
 }
 
 const AnswerSchema = new Schema<IAnswer>({
-  userId: { type: Schema.Types.ObjectId, ref: "User", required: true},
+  // userId: { type: Schema.Types.ObjectId, ref: "User", required: true},
   answerId: {type: Schema.Types.ObjectId, required: true},
-  answerText: {type:String, requered: true},
+  answerText: {type:String, required: true},
 })
 const QuestionSchema = new Schema<IQuestion>({
   userId: {type:Schema.Types.ObjectId, ref: "User", required: true},

@@ -11,7 +11,7 @@ interface IUser extends Document {
   queries: IQuery[];
 }
 const querySchema = new Schema<IQuery>({
-  questionId: {type:mongoose.Schema.Types.ObjectId, required: true},
+  questionId: {type:Schema.Types.ObjectId, required: true},
   answer:[{type: String}],
 })
 const userSchema = new Schema<IUser> ({
