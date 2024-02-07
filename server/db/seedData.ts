@@ -17,8 +17,10 @@ const seedData= {
       questionText:"Is summer the best season of Edinburgh?", 
       answers:[
       {answerId: new ObjectId(), 
-        answerText:"of course"}
-    ]},
+        answerText:"of course"
+      }
+    ]
+  },
     {_id: questionId2, 
       userId, 
       questionText:"What are some hidden gems or lesser-known places to visit in Edinburgh that you would recommend to someone visiting for the first time?", 
@@ -26,7 +28,8 @@ const seedData= {
       {answerId: new ObjectId(),
         answerText:"One lesser-known gem in Edinburgh is the Dean Village. Tucked away along the Water of Leith, this picturesque village offers a tranquil escape from the bustling city. Stroll along the riverside, admire the historic architecture, and discover a peaceful side of Edinburgh that many tourists might overlook."  
       }
-    ]}
+    ]
+  }
   ]
 }
 
