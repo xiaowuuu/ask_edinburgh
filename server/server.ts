@@ -52,8 +52,10 @@ MongoClient.connect('mongodb://localhost:27017')
       })
     app.post('/question', async(req,res)=> {
       try{
+        const {questionText} = req.body;
         const question = {
-          questionText: req.body.text,
+          userId: req.body.userId,
+          questionText: questionText,
         }
         const result = await questionCollection.insertOne(question);
         const insertedQuestion = await questionCollection.findOne({_id:result.insertedId})
