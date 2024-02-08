@@ -8,17 +8,20 @@ import QuestionComponent from "../QuestionComponent";
 const userId = "65c3c18e2fd9e9cf2177e773";
 
 function SearchContainer () {
-  const [question, setQuestion] = useState('');
-  
+  const [inputQuestion, setInputQuestion] = useState('');
+  const [submittedQuestion, setSubmittedQuestion] = useState('');
+  const [searchClicked, setSearchClicked] = useState(false);
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuestion(event.target.value);
+    setInputQuestion(event.target.value);
   }
 
   const handleSearchSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      await postData (userId, question);
-      setQuestion('');
+      await postData (userId, inputQuestion);
+      setSubmittedQuestion(inputQuestion);
+      setInputQuestion('');
+      setSearchClicked(true);
     } catch (error) {
       console.error("Error submitting questions:", error);
     }
@@ -27,13 +30,12 @@ function SearchContainer () {
   return (
     <div>
       <Search
-      question={question}
+      question={inputQuestion}
       onQuestionChange={handleQuestionChange}
       onSearchSubmit={handleSearchSubmit}
       />
-      {/* {searchClicked 
-      && <SearchResult question={question} searchClicked={searchClicked}/>}
-      <History searchHistory={searchHistory}/> */}
+      {searchClicked 
+      && <SearchResult question={submittedQuestion} searchClicked={searchClicked}/>}
       <QuestionComponent/>
       
       

@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent } from "react";
+import { ChangeEvent, FormEvent, useRef } from "react";
 
 interface SearchProps {
   question:string;
@@ -6,9 +6,16 @@ interface SearchProps {
   onSearchSubmit:(event: FormEvent<HTMLFormElement>)=> void;
 }
 function Search ({ question, onQuestionChange, onSearchSubmit}:SearchProps) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>)=> {
+    onSearchSubmit(event);
+    if (inputRef.current){
+      inputRef.current.value = "";
+    }
+  }
   return (
     <>
-    <form onSubmit={onSearchSubmit}>
+    <form onSubmit={handleSearchSubmit}>
     <input 
     type="text"
     value={question}

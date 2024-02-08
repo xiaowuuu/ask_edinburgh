@@ -5,7 +5,7 @@ interface SearchResultProps {
 function SearchResult ({question}:SearchResultProps) {
   return (
     <div className="">
-      <h3>YOur question: {question}</h3>
+      <h3>here's your question: {question}</h3>
     </div>
   )
 }
