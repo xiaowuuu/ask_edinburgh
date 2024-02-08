@@ -1,13 +1,14 @@
-import { ChangeEvent, MouseEventHandler, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent } from "react";
 
 interface SearchProps {
   question:string;
   onQuestionChange: (event:ChangeEvent<HTMLInputElement>)=> void;
-  onSearchClick:MouseEventHandler<HTMLButtonElement>;
+  onSearchSubmit:(event: FormEvent<HTMLFormElement>)=> void;
 }
-function Search ({ question, onQuestionChange, onSearchClick}:SearchProps) {
+function Search ({ question, onQuestionChange, onSearchSubmit}:SearchProps) {
   return (
     <>
+    <form onSubmit={onSearchSubmit}>
     <input 
     type="text"
     value={question}
@@ -16,9 +17,10 @@ function Search ({ question, onQuestionChange, onSearchClick}:SearchProps) {
     placeholder="Search your idea!"
     ></input>
     <button 
-    onClick={onSearchClick}
-    type="button" 
+    // onClick={onSearchClick}
+    type="submit" 
     className="text-white bg-indigo-600 border-transparency  rounded-full mr-4 px-3 py-2">Search With AI</button>
+    </form>
     <div className="pt-5 pb-5">
     <span className="text-white  bg-indigo-500 border-transparency rounded-full mr-4 px-3 py-2">
 HISTORY

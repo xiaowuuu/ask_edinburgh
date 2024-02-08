@@ -2,7 +2,7 @@ interface SearchResultProps {
   question: string;
   searchClicked: boolean;
 }
-function SearchResult ({question, searchClicked}:SearchResultProps) {
+function SearchResult ({question}:SearchResultProps) {
   return (
     <div className="">
       <h3>YOur question: {question}</h3>
