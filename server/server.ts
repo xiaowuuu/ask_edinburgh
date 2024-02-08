@@ -50,7 +50,19 @@ MongoClient.connect('mongodb://localhost:27017')
           res.status(500).json({status: 500, error: 'internal server error'})
         }
       })
-  
+    app.post('/question', async(req,res)=> {
+      try{
+        const question = {
+          questionText: req.body.text,
+        }
+        const result = await questionCollection.insertOne(question);
+        const insertedQuestion = await questionCollection.findOne({_id:result.insertedId})
+        res.status(201).json(insertedQuestion);
+      } catch (error) {
+        console.error('error inserting question: ', error);
+        res.status(500).send('internal server error');
+      }
+    })
   app.listen(port, ()=>{
     console.log(`listening on port ${port}`);
   });

@@ -10,14 +10,15 @@ export const getData = async () => {
     throw error;
   }
 }
-export const postData = async (questionId:string, questionData:object) => {
+export const postData = async (questionText:string) => {
   try {
-    const response = await fetch(`http://localhost:9000/question/${questionId}`, {
+
+    const response = await fetch(baseURL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(questionData),
+      body: JSON.stringify({text: questionText}),
     });
     const data = await response.json();
     return data;
