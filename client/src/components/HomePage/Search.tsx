@@ -27,7 +27,7 @@ function Search ({ question, onQuestionChange, onSearchSubmit}:SearchProps) {
     <button 
     disabled={isQuestionEmpty}
     type="submit" 
-    className={`text-white bg-indigo-600 border-transparency rounded-full mr-4 px-3 py-2 ${isQuestionEmpty ? 'opacity-50 cursor-not-allowed' : ''}`}>Search With AI</button>
+    className={`text-white bg-indigo-600 border-transparency rounded-full mr-4 px-3 py-2 ${isQuestionEmpty ? 'bg-zinc-400 cursor-not-allowed' : ''}`}>Search With AI</button>
     {/* button is disabled when question is empty */}
     </form>
     <div className="pt-5 pb-5">
