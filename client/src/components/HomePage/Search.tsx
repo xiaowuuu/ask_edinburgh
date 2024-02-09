@@ -7,6 +7,7 @@ interface SearchProps {
 }
 function Search ({ question, onQuestionChange, onSearchSubmit}:SearchProps) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const isQuestionEmpty = question.trim() === '';
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>)=> {
     onSearchSubmit(event);
     if (inputRef.current){
@@ -24,9 +25,10 @@ function Search ({ question, onQuestionChange, onSearchSubmit}:SearchProps) {
     placeholder="Search your idea!"
     ></input>
     <button 
-    // onClick={onSearchClick}
+    disabled={isQuestionEmpty}
     type="submit" 
-    className="text-white bg-indigo-600 border-transparency  rounded-full mr-4 px-3 py-2">Search With AI</button>
+    className={`text-white bg-indigo-600 border-transparency rounded-full mr-4 px-3 py-2 ${isQuestionEmpty ? 'opacity-50 cursor-not-allowed' : ''}`}>Search With AI</button>
+    {/* button is disabled when question is empty */}
     </form>
     <div className="pt-5 pb-5">
     <span className="text-white  bg-indigo-500 border-transparency rounded-full mr-4 px-3 py-2">
