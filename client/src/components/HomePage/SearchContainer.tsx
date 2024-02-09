@@ -34,11 +34,13 @@ function SearchContainer () {
       onQuestionChange={handleQuestionChange}
       onSearchSubmit={handleSearchSubmit}
       />
-      {searchClicked 
-      && <SearchResult question={submittedQuestion} searchClicked={searchClicked}/>}
-      <QuestionComponent/>
-      
-      
+      {searchClicked ? (
+        <SearchResult question={submittedQuestion} searchClicked={searchClicked}/>
+      ) : (
+        <div>
+          <h3>Ask your first question to get started!</h3>
+        </div>
+      )} 
     </div>
   )
 }
