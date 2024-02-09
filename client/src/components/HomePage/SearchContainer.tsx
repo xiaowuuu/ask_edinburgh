@@ -1,9 +1,8 @@
 import { FormEvent, useState } from "react";
 import Search from "./Search";
 import SearchResult from "./SearchResult";
-import History from "../HistoryPage/History";
 import { postData } from "../../services/Api";
-import QuestionComponent from "../QuestionComponent";
+
 
 const userId = "65c3c18e2fd9e9cf2177e773";
 
