@@ -2,7 +2,7 @@ import { FormEvent, useState } from "react";
 import Search from "./Search";
 import SearchResult from "./SearchResult";
 import { postData } from "../../services/Api";
-
+import { getChatGPTResponse } from "../../services/ChatGPTService";
 
 const userId = "65c3c18e2fd9e9cf2177e773";
 
@@ -10,6 +10,8 @@ function SearchContainer () {
   const [inputQuestion, setInputQuestion] = useState('');
   const [submittedQuestion, setSubmittedQuestion] = useState('');
   const [searchClicked, setSearchClicked] = useState(false);
+  const [chatGPTResponse, setChatGPTResponse] = useState("");
+  const [error, setError] = useState('');
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputQuestion(event.target.value);
   }
@@ -21,8 +23,12 @@ function SearchContainer () {
       setSubmittedQuestion(inputQuestion);
       setInputQuestion('');
       setSearchClicked(true);
+      
+      const response = await getChatGPTResponse(inputQuestion);
+      setChatGPTResponse(response);
     } catch (error) {
       console.error("Error submitting questions:", error);
+      setError("error submitting question")
     }
   }
   
@@ -34,7 +40,11 @@ function SearchContainer () {
       onSearchSubmit={handleSearchSubmit}
       />
       {searchClicked ? (
-        <SearchResult question={submittedQuestion} searchClicked={searchClicked}/>
+        <SearchResult 
+        question={submittedQuestion} 
+        chatGPTResponse= {chatGPTResponse}
+        searchClicked={searchClicked}
+        error={error}/>
       ) : (
         <div>
           <h3>Ask your first question to get started!</h3>
