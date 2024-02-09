@@ -16,8 +16,7 @@ const QuestionComponent: React.FC = () => {
     const fetchData = async () => {
       try {
         const data = await getData();
-        console.log('fetch data', data)
-        setQuestionData(data);
+        setQuestionData(data || []);
       } catch (error) {
         console.error('error fetching data:', error);
       }
@@ -41,12 +40,11 @@ const QuestionComponent: React.FC = () => {
               ))}
             </ul>
             )} */}
-            {/* hide answer for a while */}
           </div>
         ))}
         </>
       ):(
-        <p>Loading...</p>
+        <p>No search history yet.</p>
       )}
     </div>
   )
