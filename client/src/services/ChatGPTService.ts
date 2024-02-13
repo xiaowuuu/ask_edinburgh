@@ -1,6 +1,7 @@
 const CHATGPT_API_ENDPOINT = "https://api.openai.com/v1/chat/completions";
 const CHATGPT_API_KEY = process.env.REACT_APP_API_KEY;
-console.log(CHATGPT_API_KEY);
+const message_template = process.env.REACT_APP_MESSAGE_TEMPLATE;
+
 export async function getChatGPTResponse (question:any):Promise<string> {
   try {
         if(!CHATGPT_API_KEY){
@@ -14,7 +15,7 @@ export async function getChatGPTResponse (question:any):Promise<string> {
       },
           body: JSON.stringify({
             model:"gpt-3.5-turbo",
-            "messages": [{"role": "user", "content": `Only talk about Edinburgh, and provide answer tailored specifically about ${question}`}],
+            "messages": [{"role": "user", "content": `${message_template}${question}`}],
             max_tokens: 20,
 
           }),
