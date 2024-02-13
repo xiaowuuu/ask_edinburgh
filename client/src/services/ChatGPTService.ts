@@ -14,15 +14,18 @@ export async function getChatGPTResponse (question:any):Promise<string> {
       },
           body: JSON.stringify({
             model:"gpt-3.5-turbo",
-            "messages": [{"role": "user", "content": `fun fact of edinburgh about ${question}`}],
-            max_tokens: 3,
-            
+            "messages": [{"role": "user", "content": `Can you provide Edinburgh's information about topic ${question}`}],
+            max_tokens: 20,
+
           }),
     });
       
     const data = await response.json();
     console.log("chatgpt answer: ", data);
-    return data.answer;
+
+    const content = data.choices && data.choices.length > 0 ? data.choices[0].message.content: "";
+    console.log("content:", content);
+    return content;
   } catch(error) {
     console.log("error fetching chatgpt answer: ", error);
     throw error;
