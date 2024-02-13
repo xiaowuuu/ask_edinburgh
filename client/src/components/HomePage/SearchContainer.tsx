@@ -19,7 +19,7 @@ function SearchContainer () {
   const handleSearchSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      await postData (userId, inputQuestion);
+      await postData (userId, inputQuestion, chatGPTResponse);
       setSubmittedQuestion(inputQuestion);
       setInputQuestion('');
       setSearchClicked(true);

@@ -10,7 +10,7 @@ export const getData = async () => {
     throw error;
   }
 }
-export const postData = async (userId:any, questionText:string) => {
+export const postData = async (userId:any, questionText:string, answerText:string) => {
   try {
 
     const response = await fetch(baseURL, {
@@ -19,7 +19,7 @@ export const postData = async (userId:any, questionText:string) => {
         'Content-Type': 'application/json',
         
       },
-      body: JSON.stringify({userId, questionText}),
+      body: JSON.stringify({userId, questionText, answerText}),
     });
     const data = await response.json();
     return data;

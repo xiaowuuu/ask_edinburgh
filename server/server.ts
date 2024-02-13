@@ -2,6 +2,7 @@ import express, { Express } from 'express';
 import cors from 'cors';
 import {MongoClient} from 'mongodb';
 import createRouter from './helpers/create_router';
+import mongoose from 'mongoose';
 
 const app: Express = express();
 const port: number = 9000;
@@ -52,10 +53,14 @@ MongoClient.connect('mongodb://localhost:27017')
       })
     app.post('/question', async(req,res)=> {
       try{
-        const {questionText} = req.body;
+        const {userId, questionText, answerText} = req.body;
         const question = {
-          userId: req.body.userId,
+          userId: userId,
           questionText: questionText,
+          answers: [{
+            answerId: new mongoose.Types.ObjectId(),
+            answerText: answerText
+          }]
         }
         const result = await questionCollection.insertOne(question);
         const insertedQuestion = await questionCollection.findOne({_id:result.insertedId})
