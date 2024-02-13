@@ -31,7 +31,7 @@ const QuestionComponent: React.FC = () => {
         {questionData.map((question, index)=> (
           <div key={index}>
             <h2>Question: {question.questionText}</h2>
-            {/* {question.answers.length > 0 && (
+            {question.answers.length > 0 && (
               <ul>
               {question.answers.map((answer, answerIndex)=> (
                 <li key={answerIndex}>
@@ -39,7 +39,7 @@ const QuestionComponent: React.FC = () => {
                 </li>
               ))}
             </ul>
-            )} */}
+            )}
           </div>
         ))}
         </>
