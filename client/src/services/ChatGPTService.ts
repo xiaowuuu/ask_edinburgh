@@ -14,7 +14,7 @@ export async function getChatGPTResponse (question:any):Promise<string> {
       },
           body: JSON.stringify({
             model:"gpt-3.5-turbo",
-            "messages": [{"role": "user", "content": `Can you provide Edinburgh's information about topic ${question}`}],
+            "messages": [{"role": "user", "content": `Only talk about Edinburgh, and provide answer tailored specifically about ${question}`}],
             max_tokens: 20,
 
           }),
