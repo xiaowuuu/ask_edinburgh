@@ -1,6 +1,6 @@
 const CHATGPT_API_ENDPOINT = "https://api.openai.com/v1/chat/completions";
 const CHATGPT_API_KEY = process.env.REACT_APP_API_KEY;
-
+console.log(CHATGPT_API_KEY);
 export async function getChatGPTResponse (question:any):Promise<string> {
   try {
         if(!CHATGPT_API_KEY){
@@ -8,17 +8,20 @@ export async function getChatGPTResponse (question:any):Promise<string> {
         }
         const response = await fetch(CHATGPT_API_ENDPOINT, {
           method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${CHATGPT_API_KEY}`,
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${CHATGPT_API_KEY}`,
       },
-      body: JSON.stringify({
-        question
-      }),
+          body: JSON.stringify({
+            model:"gpt-3.5-turbo",
+            "messages": [{"role": "user", "content": `fun fact of edinburgh about ${question}`}],
+            max_tokens: 20,
+            
+          }),
     });
       
     const data = await response.json();
-    console.log("chatgpt answer: ", data.answer);
+    console.log("chatgpt answer: ", data);
     return data.answer;
   } catch(error) {
     console.log("error fetching chatgpt answer: ", error);
