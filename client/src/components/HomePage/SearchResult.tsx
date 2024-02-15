@@ -13,7 +13,7 @@ function SearchResult ({question, chatGPTResponse}:SearchResultProps) {
     setRandomNumber(newRandomNumber);
   }, [question]);
   return (
-    <div className="border-2 border-gray-400 border-opacity-25 rounded-lg rounded-[10px] h-80 w-96">
+    <div className="@container   overflow-auto border-2 border-gray-400 border-opacity-25 rounded-lg rounded-[10px] h-100 w-1/2">
       {randomNumber && (
         <>
         <img 
@@ -22,7 +22,7 @@ function SearchResult ({question, chatGPTResponse}:SearchResultProps) {
         alt={`Image ${randomNumber}`} />
         <div className="p-4 ">
         <p className="text-base">{question}</p>
-        <p className="text-base">here's your answer: {chatGPTResponse}{chatGPTResponse}{chatGPTResponse}{chatGPTResponse}{chatGPTResponse}{chatGPTResponse}{chatGPTResponse}{chatGPTResponse}{chatGPTResponse}{chatGPTResponse}</p>
+        <p className="text-base md:text-lg">here's your answer: {chatGPTResponse}</p>
         </div>
         </>
       )}
