@@ -4,7 +4,7 @@ import SearchContainer from "./SearchContainer";
 function HomePage() {
   
   return (
-    <div>
+    <div className="mx-20">
       <Header />
       
       <SearchContainer />

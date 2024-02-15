@@ -13,7 +13,7 @@ function SearchResult ({question, chatGPTResponse}:SearchResultProps) {
     setRandomNumber(newRandomNumber);
   }, [question]);
   return (
-    <div className="@container   overflow-auto border-2 border-gray-400 border-opacity-25 rounded-lg rounded-[10px] h-100 w-1/2">
+    <div className="@container   overflow-auto border-2 border-gray-400 border-opacity-25 rounded-lg rounded-[10px] h-100 w-full">
       {randomNumber && (
         <>
         <img 
