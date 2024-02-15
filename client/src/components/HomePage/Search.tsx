@@ -33,20 +33,24 @@ function Search ({ question, onQuestionChange, onSearchSubmit}:SearchProps) {
     </form>
     
     <div className="pt-5 pb-5">
-    <span className="text-white  bg-indigo-500 border-transparency rounded-full mr-4 px-3 py-2">
+      <span className="flex mb-3">
+    <p className="text-white  bg-indigo-500 border-transparency rounded-full mr-4 px-7 py-2">
 HISTORY
-    </span>
-    <span className="text-white  bg-amber-300 border-transparency rounded-full mr-4 px-3 py-2">
+    </p>
+    <p className="text-white  bg-amber-300 border-transparency rounded-full mr-4 px-7 py-2">
     EDINBURGH FESTIVAL FRINGE
-    </span>
-    <span className="text-white  bg-violet-400 border-transparency rounded-full mr-4 px-3 py-2">
+    </p>
+    <p className="text-white  bg-violet-400 border-transparency rounded-full mr-4 px-7 py-2">
     SUNSHINE ON LEITH
+    </p>
     </span>
-    <span className="text-white  bg-violet-400 border-transparency rounded-full mr-4 px-3 py-2">
+    <span className="flex">
+    <p className="text-white  bg-violet-400 border-transparency rounded-full mr-4 px-7 py-2">
     LITERARY HERITAGE
-    </span>
-    <span className="text-white  bg-amber-300 border-transparency rounded-full mr-4 px-3 py-2">
+    </p>
+    <p className="text-white  bg-amber-300 border-transparency rounded-full mr-4 px-7 py-2">
     EDINBURG’S HOGMANAY
+    </p>
     </span>
     </div>
     </div>
