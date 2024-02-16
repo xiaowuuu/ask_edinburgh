@@ -64,6 +64,16 @@ MongoClient.connect('mongodb://localhost:27017')
         }
         const result = await questionCollection.insertOne(question);
         const insertedQuestion = await questionCollection.findOne({_id:result.insertedId})
+        
+        if (!insertedQuestion) {
+          throw new Error('failed to insert question');
+        }
+        const answer = {
+          userId: userId,
+          questionId: insertedQuestion._id,
+          answerText: answerText
+        }
+        await answerCollection.insertOne(answer);
         res.status(201).json(insertedQuestion);
       } catch (error) {
         console.error('error inserting question: ', error);
