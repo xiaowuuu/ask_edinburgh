@@ -10,7 +10,7 @@ function SearchContainer () {
   const [inputQuestion, setInputQuestion] = useState('');
   const [submittedQuestion, setSubmittedQuestion] = useState('');
   const [searchClicked, setSearchClicked] = useState(false);
-  const [chatGPTResponse, setChatGPTResponse] = useState("");
+  const [chatGPTResponse, setChatGPTResponse] = useState("");//the state caused the empty string of first answer text.
   const [error, setError] = useState('');
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputQuestion(event.target.value);
