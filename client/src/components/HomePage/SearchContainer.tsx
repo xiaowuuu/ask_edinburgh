@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState,useEffect } from "react";
 import Search from "./Search";
 import SearchResult from "./SearchResult";
 import { postData } from "../../services/Api";
@@ -19,18 +19,32 @@ function SearchContainer () {
   const handleSearchSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
+      const response = await getChatGPTResponse(inputQuestion);
+      setChatGPTResponse(response);
+
       await postData (userId, inputQuestion, chatGPTResponse);
       setSubmittedQuestion(inputQuestion);
       setInputQuestion('');
-      setSearchClicked(true);
-      
-      const response = await getChatGPTResponse(inputQuestion);
-      setChatGPTResponse(response);
+      setSearchClicked(true);      
     } catch (error) {
       console.error("Error submitting questions:", error);
       setError("error submitting question")
     }
   }
+  useEffect(() => {
+    if (chatGPTResponse !== '') {
+      postData(userId, inputQuestion, chatGPTResponse)
+        .then(() => {
+          setSubmittedQuestion(inputQuestion);
+          setInputQuestion('');
+          setSearchClicked(true);
+        })
+        .catch((error) => {
+          console.error("Error submitting questions:", error);
+          setError("error submitting question")
+        });
+    }
+  }, [chatGPTResponse]);
   
   return (
     <div>
