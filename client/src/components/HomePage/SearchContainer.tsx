@@ -12,6 +12,8 @@ function SearchContainer () {
   const [searchClicked, setSearchClicked] = useState(false);
   const [chatGPTResponse, setChatGPTResponse] = useState("");//the state caused the empty string of first answer text.
   const [error, setError] = useState('');
+  //input question, click, get and useEffect response from chatgpt
+  //submit question and answer together to database
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputQuestion(event.target.value);
   }
@@ -22,10 +24,10 @@ function SearchContainer () {
       const response = await getChatGPTResponse(inputQuestion);
       setChatGPTResponse(response);
 
-      await postData (userId, inputQuestion, chatGPTResponse);
-      setSubmittedQuestion(inputQuestion);
-      setInputQuestion('');
-      setSearchClicked(true);      
+      // await postData (userId, inputQuestion, chatGPTResponse);
+      // setSubmittedQuestion(inputQuestion);
+      // setInputQuestion('');
+      // setSearchClicked(true);      
     } catch (error) {
       console.error("Error submitting questions:", error);
       setError("error submitting question")
