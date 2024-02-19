@@ -2,10 +2,18 @@ import castle from '../../assets/image/Castle.png'
 import circle from '../../assets/image/Exclude.png'
 import pipeman from '../../assets/image/Pipeman.png'
 import purple from '../../assets/image/Purple.png'
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 function Header () {
+  function handleScroll() {
+    window.scroll({
+      top: document.body.offsetHeight,
+      left: 0, 
+      behavior: 'smooth',
+    });
+  }
   return (
-    <div className='container mx-auto overflow-hidden px-10 pt-8 pb-40 relative'>
+    <div className='container mx-auto overflow-hidden px-10 pt-8 pb-32 relative'>
       <div className='flex justify-between items-center'>
       <div className='relative'>
         <span className='relative top-[-50px]'><img src={castle} alt={castle} className='h-40 w-40'/></span>
@@ -25,8 +33,12 @@ function Header () {
         <span className='absolute left-[-150px]'><img src={pipeman} alt={pipeman} className='h-40 w-40'/></span>
     </div>
     </div>
-    <div className='flex justify-center pt-8'>
-    <button className='text-white bg-violet-400 border-transparency rounded-full px-7 py-4'>GET STARTED</button>
+    <div className='flex justify-center pt-16'>
+    <button 
+    type="button"
+    onClick={handleScroll}
+    className='text-white bg-violet-400 border-transparency rounded-full px-7 py-4'>GET STARTED
+    </button>
     </div>
     </div>
     
