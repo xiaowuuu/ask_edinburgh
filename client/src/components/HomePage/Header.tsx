@@ -2,7 +2,6 @@ import castle from '../../assets/image/Castle.png'
 import circle from '../../assets/image/Exclude.png'
 import pipeman from '../../assets/image/Pipeman.png'
 import purple from '../../assets/image/Purple.png'
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 function Header () {
   function handleScroll() {

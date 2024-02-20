@@ -22,7 +22,7 @@ function SearchResult ({question, chatGPTResponse}:SearchResultProps) {
         alt={`Image ${randomNumber}`} />
         <div className="p-4 ">
         <p className="text-base">{question}</p>
-        <p className="text-base md:text-lg">here's your answer: {chatGPTResponse}</p>
+        <p className="text-base md:text-lg">{chatGPTResponse}</p>
         </div>
         </>
       )}

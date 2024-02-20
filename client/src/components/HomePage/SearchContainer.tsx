@@ -22,12 +22,7 @@ function SearchContainer () {
     event.preventDefault();
     try {
       const response = await getChatGPTResponse(inputQuestion);
-      setChatGPTResponse(response);
-
-      // await postData (userId, inputQuestion, chatGPTResponse);
-      // setSubmittedQuestion(inputQuestion);
-      // setInputQuestion('');
-      // setSearchClicked(true);      
+      setChatGPTResponse(response);    
     } catch (error) {
       console.error("Error submitting questions:", error);
       setError("error submitting question")
