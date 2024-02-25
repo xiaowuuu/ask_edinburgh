@@ -15,8 +15,8 @@ function Header () {
     <div className='container mx-auto overflow-hidden px-10 pt-8 pb-32 relative'>
       <div className='flex justify-between items-center'>
       <div className='relative'>
-        <span className='relative top-[-50px]'><img src={castle} alt={castle} className='h-40 w-40'/></span>
-        <span className='absolute right-[-80px]'><img src={purple} alt={purple} className=' h-10 w-10'/></span>
+        <img src={castle} alt={castle} className='lg:h-40 lg:w-40 md:h-10 md:w-10'/>
+        <img src={purple} alt={purple} className=' lg:h-10 lg:w-10 md:h-3 md:w-3'/>
       </div>
     <div className='p-10'>
     <p className='text-6xl font-ABeeZee mb-8'>The best place to</p>
@@ -25,11 +25,11 @@ function Header () {
     <span className=' text-6xl font-ABeeZee'> and </span>
     <span className='text-indigo-500'>DISCOVER</span>
     </p>
-    <p className='text-6xl font-ABeeZee '>Edinburgh</p>
+    <p className='text-6xl lg:text-6xl font-ABeeZee '>Edinburgh</p>
     </div>
     <div className='relative'>
-        <span className='relative top-[-100px]'><img src={circle} alt={circle} className='h-20 w-20'/></span>
-        <span className='absolute left-[-150px]'><img src={pipeman} alt={pipeman} className='h-40 w-40'/></span>
+        <img src={circle} alt={circle} className='lg:h-10 lg:w-10 md:w-5 md:h-5'/>
+        <img src={pipeman} alt={pipeman} className='lg:h-40 lg:w-40 md:w-5 md:h-5'/>
     </div>
     </div>
     <div className='flex justify-center pt-16'>
