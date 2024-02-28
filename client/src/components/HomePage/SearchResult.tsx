@@ -21,7 +21,7 @@ function SearchResult ({question, chatGPTResponse}:SearchResultProps) {
         src={`src/assets/banner_images/${randomNumber}.jpeg`} 
         alt={`Image ${randomNumber}`} />
         <div className="p-4 ">
-        <p className="text-base">{question}</p>
+        <p className="text-base font-bold">{question}</p>
         <p className="text-base md:text-lg">{chatGPTResponse}</p>
         </div>
         </>
