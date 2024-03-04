@@ -13,8 +13,7 @@ How to use in your device?
 DEMO
 
 
-https://github.com/xiaowuuu/ask_edinburgh/assets/17334449/b8523cd4-2305-4d93-98d6-27feb755ad2c
 
 
-
+https://github.com/xiaowuuu/ask_edinburgh/assets/17334449/002a5cc0-b7cd-45d1-a1c2-3d6bf4dcad68
 
