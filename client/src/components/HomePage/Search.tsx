@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useRef } from "react";
+import { ChangeEvent, FormEvent } from "react";
 
 interface SearchProps {
   question:string;
@@ -6,13 +6,10 @@ interface SearchProps {
   onSearchSubmit:(event: FormEvent<HTMLFormElement>)=> void;
 }
 function Search ({ question, onQuestionChange, onSearchSubmit}:SearchProps) {
-  const inputRef = useRef<HTMLInputElement>(null);
   const isQuestionEmpty = question.trim() === '';
-  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>)=> {
-    onSearchSubmit(event);
-    if (inputRef.current){
-      inputRef.current.value = "";
-    }
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>)=> {
+    e.preventDefault();
+    onSearchSubmit(e);
   }
   return (
     <div className="flex flex-col items-center ">
