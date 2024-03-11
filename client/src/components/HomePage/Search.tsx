@@ -4,16 +4,14 @@ interface SearchProps {
   question:string;
   onQuestionChange: (event:ChangeEvent<HTMLInputElement>)=> void;
   onSearchSubmit:(event: FormEvent<HTMLFormElement>)=> void;
+
 }
 function Search ({ question, onQuestionChange, onSearchSubmit}:SearchProps) {
   const isQuestionEmpty = question.trim() === '';
-  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>)=> {
-    e.preventDefault();
-    onSearchSubmit(e);
-  }
+  
   return (
     <div className="flex flex-col items-center ">
-    <form onSubmit={handleSearchSubmit} className="flex items-center">
+    <form onSubmit={onSearchSubmit} className="flex items-center">
     <input 
     type="text"
     value={question}
