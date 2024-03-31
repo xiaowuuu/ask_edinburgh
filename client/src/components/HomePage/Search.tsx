@@ -1,21 +1,15 @@
-import { ChangeEvent, FormEvent,useState } from "react";
+import { ChangeEvent, FormEvent } from "react";
 
 interface SearchProps {
   question:string;
   onQuestionChange: (event:ChangeEvent<HTMLInputElement>)=> void;
   onSearchSubmit:(event: FormEvent<HTMLFormElement>)=> void;
-  buttonState:ButtonState;
+  
 }
-export enum ButtonState {
-  UNCLICKED = 'unclicked',
-  CLICKED = 'clicked',
-}
-function Search ({ question, onQuestionChange, onSearchSubmit, buttonState}:SearchProps) {
+
+function Search ({ question, onQuestionChange, onSearchSubmit}:SearchProps) {
   const isQuestionEmpty = question.trim() === '';
-  // const [buttonState, setButtonState] = useState(ButtonState.UNCLICKED);
-  // const handleButtonClick = () => {
-  //   setButtonState(ButtonState.CLICKED);
-  // }
+  
   return (
     <div className="flex flex-col items-center ">
     <form onSubmit={onSearchSubmit} className="flex items-center">
@@ -27,7 +21,7 @@ function Search ({ question, onQuestionChange, onSearchSubmit, buttonState}:Sear
     placeholder="Search your idea!"
     ></input>
     <button 
-    disabled={isQuestionEmpty || buttonState=== ButtonState.CLICKED}
+    disabled={isQuestionEmpty}
     type="submit" 
     className={`active:opacity-[0.85] 
     text-white bg-indigo-600 w-[177px] border-transparency rounded-full mr-4 px-3 py-2 ${isQuestionEmpty ? 'bg-zinc-400 cursor-not-allowed' : ''}`}>Search With AI

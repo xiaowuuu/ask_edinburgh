@@ -1,9 +1,9 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import Search from "./Search";
 import SearchResult from "./SearchResult";
 import { postData } from "../../services/Api";
 import { getChatGPTResponse } from "../../services/ChatGPTService";
-import { ButtonState } from "./Search";
+
 const userId = "65c3c18e2fd9e9cf2177e773";
 
 function SearchContainer () {
@@ -12,45 +12,37 @@ function SearchContainer () {
   const [searchClicked, setSearchClicked] = useState(false);
   const [chatGPTResponse, setChatGPTResponse] = useState("");//the state caused the empty string of first answer text.
   const [error, setError] = useState('');
-  const [buttonState, setButtonState] = useState(ButtonState.UNCLICKED);
+  
   //input question, click, get and useEffect response from chatgpt
   //submit question and answer together to database
   const handleQuestionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputQuestion(event.target.value);
-    setButtonState(ButtonState.UNCLICKED);
   }
-
+  
   const handleSearchSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       const response = await getChatGPTResponse(inputQuestion);
-      setChatGPTResponse(response);
-      
-      await postData(userId, inputQuestion, response);
-      setSubmittedQuestion(inputQuestion);
-      setSearchClicked(true);
-      setInputQuestion(''); 
-      setButtonState(ButtonState.CLICKED);
-        
+      setChatGPTResponse(response);    
     } catch (error) {
       console.error("Error submitting questions:", error);
       setError("error submitting question")
     }
   }
-  // useEffect(() => {
-  //   if (chatGPTResponse !== '') {
-  //     postData(userId, inputQuestion, chatGPTResponse)
-  //       .then(() => {
-  //         setSubmittedQuestion(inputQuestion);
-  //         setInputQuestion('');
-  //         setSearchClicked(true);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error submitting questions:", error);
-  //         setError("error submitting question")
-  //       });
-  //   }
-  // }, [chatGPTResponse]);
+  useEffect(() => {
+    if (chatGPTResponse !== '') {
+      postData(userId, inputQuestion, chatGPTResponse)
+        .then(() => {
+          setSubmittedQuestion(inputQuestion);
+          setInputQuestion('');
+          setSearchClicked(true);
+        })
+        .catch((error) => {
+          console.error("Error submitting questions:", error);
+          setError("error submitting question")
+        });
+    }
+  }, [chatGPTResponse]);
   
   return (
     <div>
@@ -58,7 +50,6 @@ function SearchContainer () {
       question={inputQuestion}
       onQuestionChange={handleQuestionChange}
       onSearchSubmit={handleSearchSubmit}
-      buttonState={buttonState}
       />
       {searchClicked ? (
         <SearchResult 
