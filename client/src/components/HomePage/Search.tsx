@@ -17,7 +17,7 @@ function Search ({ question, onQuestionChange, onSearchSubmit}:SearchProps) {
     type="text"
     value={question}
     onChange={onQuestionChange}
-    className="w-[600px] border border-gray-500 rounded-full mr-4 px-3 py-2 px-5 focus:outline-none focus:border-blue-700"
+    className="md:w-[600px] border border-gray-500 rounded-full mr-4 px-3 py-2 px-5 focus:outline-none "
     placeholder="Search your idea!"
     ></input>
     <button 

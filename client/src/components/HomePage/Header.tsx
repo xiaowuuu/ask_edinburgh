@@ -12,7 +12,7 @@ function Header () {
     });
   }
   return (
-    <div className='container mx-auto overflow-hidden px-10 pt-8 pb-32 relative'>
+    <div className='container px-10 pt-8 pb-32 relative'>
       <div className='flex justify-between items-center'>
       <div className='relative'>
         <img src={castle} alt={castle} className='lg:h-40 lg:w-40 md:h-10 md:w-10'/>
@@ -32,7 +32,7 @@ function Header () {
         <img src={pipeman} alt={pipeman} className='lg:h-40 lg:w-40 md:w-5 md:h-5'/>
     </div>
     </div>
-    <div className='flex justify-center pt-16'>
+    <div className='flex justify-center pt-16 sm:justify-center'>
     <button 
     type="button"
     onClick={handleScroll}
